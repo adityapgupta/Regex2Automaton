@@ -14,6 +14,9 @@ class NFA(FSA):
         newS = set()
         for i in range(len(ipStr)):
             symbol = ipStr[i]
+            if symbol not in self.alphabetTransitions.keys():
+                print("String Rejected")
+                return False
             tm = self.alphabetTransitions[symbol]
             for state in S:
                 trs = tm[state]
